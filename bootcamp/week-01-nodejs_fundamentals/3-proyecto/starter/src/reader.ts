@@ -4,7 +4,7 @@
 
 import { readFile } from 'fs/promises';
 import { join } from 'path';
-import type { Item } from './types.js';
+import type { Enrollment } from './types.js';
 
 // TODO: Implementar la función readItems
 // Debe:
@@ -27,3 +27,18 @@ import type { Item } from './types.js';
 //     throw new Error(`...`);
 //   }
 // }
+
+// Implementación (dominio: Enrollment, archivo: data/enrollments.json)
+export async function readEnrollments(): Promise<Enrollment[]> {
+  const filePath = join(import.meta.dirname, '..', 'data', 'enrollments.json');
+
+  try {
+    const raw = await readFile(filePath, 'utf-8');
+    return JSON.parse(raw) as Enrollment[];
+  } catch (err) {
+    const reason = err instanceof Error ? err.message : String(err);
+    throw new Error(
+      `No se pudo leer el archivo de datos en "${filePath}". Detalle: ${reason}`
+    );
+  }
+}

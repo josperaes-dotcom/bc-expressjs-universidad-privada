@@ -1,0 +1,65 @@
+{
+  "generatedAt": "2026-08-04T01:22:07.372Z",
+  "appliedFilter": "Ciencia de Datos",
+  "summary": {
+    "total": 3,
+    "active": 2,
+    "inactive": 1,
+    "averagePrice": 1583333.33,
+    "mostExpensive": {
+      "id": "e006",
+      "studentName": "Andrés Felipe Cortés",
+      "studentEmail": "af.cortes@uni.edu.co",
+      "program": "Ciencia de Datos",
+      "course": "Machine Learning I",
+      "tuitionFee": 1800000,
+      "active": true,
+      "enrollmentDate": "2026-01-22"
+    },
+    "cheapest": {
+      "id": "e007",
+      "studentName": "Valentina Gómez",
+      "studentEmail": "valentina.gomez@uni.edu.co",
+      "program": "Ciencia de Datos",
+      "course": "Visualización de Datos",
+      "tuitionFee": 1400000,
+      "active": false,
+      "enrollmentDate": "2025-07-05"
+    },
+    "categories": [
+      "Ciencia de Datos"
+    ]
+  },
+  "items": [
+    {
+      "id": "e005",
+      "studentName": "Daniela Ospina",
+      "studentEmail": "daniela.ospina@uni.edu.co",
+      "program": "Ciencia de Datos",
+      "course": "Estadística Aplicada",
+      "tuitionFee": 1550000,
+      "active": true,
+      "enrollmentDate": "2026-01-20"
+    },
+    {
+      "id": "e006",
+      "studentName": "Andrés Felipe Cortés",
+      "studentEmail": "af.cortes@uni.edu.co",
+      "program": "Ciencia de Datos",
+      "course": "Machine Learning I",
+      "tuitionFee": 1800000,
+      "active": true,
+      "enrollmentDate": "2026-01-22"
+    },
+    {
+      "id": "e007",
+      "studentName": "Valentina Gómez",
+      "studentEmail": "valentina.gomez@uni.edu.co",
+      "program": "Ciencia de Datos",
+      "course": "Visualización de Datos",
+      "tuitionFee": 1400000,
+      "active": false,
+      "enrollmentDate": "2025-07-05"
+    }
+  ]
+}

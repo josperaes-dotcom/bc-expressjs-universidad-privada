@@ -1,6 +1,41 @@
 # 🚀 Proyecto Semanal — Procesador de Datos con Node.js
 
 ## 🎯 Objetivo
+## 👤 Estudiante
+
+| Campo | Valor |
+|---|---|
+| Nombre | Jose Luis Guerrero Mosquera |
+| Documento | 3228970 |
+| Curso | bc-expressjs |
+| Correo | josperaes@gmail.com |
+| Institución | Universidad privada |
+
+## 🎓 Mi dominio: Universidad
+
+Dominio asignado: **`students`, `programs`, `courses`, `enrollments`**.
+
+Se eligió **`Enrollment`** (inscripción) como recurso principal, porque conecta a un **estudiante** con un **programa** y un **curso**.
+
+| Campo genérico (`Item`) | Campo del dominio (`Enrollment`) | Descripción |
+|---|---|---|
+| `name` | `studentName` | Nombre del estudiante inscrito |
+| — | `studentEmail` | Correo del estudiante |
+| `category` | `program` | Programa académico (usado con `--category`) |
+| — | `course` | Curso específico dentro del programa |
+| `price` | `tuitionFee` | Valor de la matrícula del curso |
+| `active` | `active` | Si la inscripción está activa o inactiva |
+| — | `enrollmentDate` | Fecha de inscripción |
+
+Archivo de datos: `starter/data/items.json` → **`starter/data/enrollments.json`** (12 registros).
+
+### Logs de ejecución
+
+**Sin filtro:** 12 inscripciones, 9 activas, promedio $1,433,333.33
+
+**Con filtro `--category "Ciencia de Datos"`:** 3 inscripciones, 2 activas, promedio $1,583,333.33
+
+**Categoría inexistente `--category "Medicina"`:** error descriptivo listando programas disponibles, termina con código 1
 
 Construir una herramienta de línea de comandos (CLI) que lea datos desde un archivo JSON, los procese aplicando filtros y transformaciones, y genere un reporte con los resultados — todo usando **Node.js + TypeScript + async/await**.
 

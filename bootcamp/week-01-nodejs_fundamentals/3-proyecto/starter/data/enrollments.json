@@ -1,0 +1,14 @@
+[
+  { "id": "e001", "studentName": "Laura Ramírez", "studentEmail": "laura.ramirez@uni.edu.co", "program": "Ingeniería de Software", "course": "Bases de Datos I", "tuitionFee": 1450000, "active": true, "enrollmentDate": "2026-01-15" },
+  { "id": "e002", "studentName": "Carlos Andrade", "studentEmail": "carlos.andrade@uni.edu.co", "program": "Ingeniería de Software", "course": "Algoritmos y Estructuras de Datos", "tuitionFee": 1450000, "active": true, "enrollmentDate": "2026-01-16" },
+  { "id": "e003", "studentName": "María Fernanda Ríos", "studentEmail": "mf.rios@uni.edu.co", "program": "Ingeniería de Software", "course": "Programación Web con Node.js", "tuitionFee": 1600000, "active": false, "enrollmentDate": "2025-08-10" },
+  { "id": "e004", "studentName": "Julián Torres", "studentEmail": "julian.torres@uni.edu.co", "program": "Ingeniería de Software", "course": "Arquitectura de Software", "tuitionFee": 1700000, "active": true, "enrollmentDate": "2026-02-01" },
+  { "id": "e005", "studentName": "Daniela Ospina", "studentEmail": "daniela.ospina@uni.edu.co", "program": "Ciencia de Datos", "course": "Estadística Aplicada", "tuitionFee": 1550000, "active": true, "enrollmentDate": "2026-01-20" },
+  { "id": "e006", "studentName": "Andrés Felipe Cortés", "studentEmail": "af.cortes@uni.edu.co", "program": "Ciencia de Datos", "course": "Machine Learning I", "tuitionFee": 1800000, "active": true, "enrollmentDate": "2026-01-22" },
+  { "id": "e007", "studentName": "Valentina Gómez", "studentEmail": "valentina.gomez@uni.edu.co", "program": "Ciencia de Datos", "course": "Visualización de Datos", "tuitionFee": 1400000, "active": false, "enrollmentDate": "2025-07-05" },
+  { "id": "e008", "studentName": "Santiago Muñoz", "studentEmail": "santiago.munoz@uni.edu.co", "program": "Administración de Empresas", "course": "Finanzas Corporativas", "tuitionFee": 1300000, "active": true, "enrollmentDate": "2026-02-03" },
+  { "id": "e009", "studentName": "Camila Zapata", "studentEmail": "camila.zapata@uni.edu.co", "program": "Administración de Empresas", "course": "Mercadeo Estratégico", "tuitionFee": 1250000, "active": true, "enrollmentDate": "2026-01-18" },
+  { "id": "e010", "studentName": "Felipe Herrera", "studentEmail": "felipe.herrera@uni.edu.co", "program": "Administración de Empresas", "course": "Gerencia de Proyectos", "tuitionFee": 1350000, "active": false, "enrollmentDate": "2025-06-12" },
+  { "id": "e011", "studentName": "Isabella Vargas", "studentEmail": "isabella.vargas@uni.edu.co", "program": "Diseño Gráfico", "course": "Fundamentos de Diseño UX/UI", "tuitionFee": 1150000, "active": true, "enrollmentDate": "2026-01-25" },
+  { "id": "e012", "studentName": "Mateo Salazar", "studentEmail": "mateo.salazar@uni.edu.co", "program": "Diseño Gráfico", "course": "Animación Digital", "tuitionFee": 1200000, "active": true, "enrollmentDate": "2026-02-05" }
+]

@@ -5,13 +5,17 @@
 // Ejemplo: Book, Medicine, Member, Dish, Room...
 
 // TODO: Renombrar 'Item' al recurso de tu dominio asignado
-export interface Item {
+// Mi dominio: Universidad (students, programs, courses, enrollments)
+// Recurso elegido: Enrollment (inscripción), conecta estudiante + programa + curso
+export interface Enrollment {
   id: string;
-  name: string;
-  category: string;
-  price: number;
-  stock: number;
+  studentName: string;
+  studentEmail: string;
+  program: string; // categoría -> usado con --category
+  course: string;
+  tuitionFee: number; // price
   active: boolean;
+  enrollmentDate: string;
 }
 
 // TODO: Agregar campos específicos de tu dominio
@@ -26,13 +30,13 @@ export interface Item {
 // }
 
 // Resumen que el procesador debe calcular
-export interface ItemSummary {
+export interface EnrollmentSummary {
   total: number;
   active: number;
   inactive: number;
   averagePrice: number;
-  mostExpensive: Item;
-  cheapest: Item;
+  mostExpensive: Enrollment;
+  cheapest: Enrollment;
   categories: string[];
 }
 
@@ -40,6 +44,6 @@ export interface ItemSummary {
 export interface Report {
   generatedAt: string;
   appliedFilter: string | null;
-  summary: ItemSummary;
-  items: Item[];
+  summary: EnrollmentSummary;
+  items: Enrollment[];
 }
