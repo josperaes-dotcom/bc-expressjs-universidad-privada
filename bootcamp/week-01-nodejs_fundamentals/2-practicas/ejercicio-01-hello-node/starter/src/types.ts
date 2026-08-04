@@ -1,19 +1,18 @@
 // ============================================
-// TIPOS DEL EJERCICIO 01
+// TYPES — Define las estructuras de datos
 // ============================================
-// Descomenta las siguientes líneas para el Paso 1:
 
-// export interface Product {
-//   id: number;
-//   name: string;
-//   price: number;
-//   category: string;
-//   stock: number;
-// }
-//
-// export interface Report {
-//   totalProducts: number;
-//   totalValue: number;
-//   categories: string[];
-//   lowStockItems: Product[];
-// }
+export interface Product {
+  id: number;
+  name: string;
+  price: number;
+  category: string;
+  stock: number;
+}
+
+export interface ProductReport {
+  totalProducts: number;
+  totalValue: number;
+  categories: string[];
+  lowStockItems: Product[];
+}
