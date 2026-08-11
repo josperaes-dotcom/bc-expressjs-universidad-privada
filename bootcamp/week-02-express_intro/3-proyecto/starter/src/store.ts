@@ -1,43 +1,36 @@
 import type { Item, CreateItemDto, UpdateItemDto } from './types.js';
 
-// Store en memoria — simula una base de datos sin persistencia
-// Los datos se pierden al reiniciar el servidor (se usará BD a partir de week-05)
-const items: Item[] = [];
-let nextId = 1;
+const items: Item[] = [
+  { id: 1, studentName: 'Laura Ramírez', studentEmail: 'laura.ramirez@uni.edu.co', program: 'Ingeniería de Software', course: 'Bases de Datos I', tuitionFee: 1450000, active: true },
+  { id: 2, studentName: 'Carlos Andrade', studentEmail: 'carlos.andrade@uni.edu.co', program: 'Ingeniería de Software', course: 'Algoritmos y Estructuras de Datos', tuitionFee: 1450000, active: true },
+  { id: 3, studentName: 'Daniela Ospina', studentEmail: 'daniela.ospina@uni.edu.co', program: 'Ciencia de Datos', course: 'Estadística Aplicada', tuitionFee: 1550000, active: true },
+];
+let nextId = 4;
 
-// TODO: Implementar getAll
-// Debe retornar todos los ítems del array
 export function getAll(): Item[] {
-  // TODO: retornar el array de items
-  return [];
+  return [...items];
 }
 
-// TODO: Implementar getById
-// Debe retornar el ítem con el id dado, o undefined si no existe
 export function getById(id: number): Item | undefined {
-  // TODO: buscar y retornar el ítem
-  return undefined;
+  return items.find((item) => item.id === id);
 }
 
-// TODO: Implementar create
-// Debe crear un nuevo ítem con un id autoincremental y retornarlo
 export function create(data: CreateItemDto): Item {
-  // TODO: crear, guardar y retornar el nuevo ítem
-  // Pista: usa nextId++ para generar el id
   const newItem: Item = { id: nextId++, ...data };
-  return newItem;
+  items.push(newItem);
+  return { ...newItem };
 }
 
-// TODO: Implementar update
-// Debe actualizar el ítem con el id dado y retornarlo, o undefined si no existe
 export function update(id: number, data: UpdateItemDto): Item | undefined {
-  // TODO: buscar el ítem, actualizar sus campos y retornarlo
-  return undefined;
+  const index = items.findIndex((item) => item.id === id);
+  if (index === -1) return undefined;
+  items[index] = { ...items[index]!, ...data };
+  return { ...items[index]! };
 }
 
-// TODO: Implementar remove
-// Debe eliminar el ítem con el id dado y retornar true, o false si no existe
 export function remove(id: number): boolean {
-  // TODO: buscar y eliminar el ítem, retornar éxito
-  return false;
+  const index = items.findIndex((item) => item.id === id);
+  if (index === -1) return false;
+  items.splice(index, 1);
+  return true;
 }

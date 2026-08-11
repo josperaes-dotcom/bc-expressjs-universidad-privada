@@ -5,31 +5,31 @@ import { itemsRouter } from './routes/items.routes.js';
 export function createApp(): Application {
   const app = express();
 
-  // TODO: Registrar middleware en este orden exacto:
-  //
-  // 1. express.json() — parseo de body (requerido para POST/PUT)
-  // app.use(express.json());
-  //
-  // 2. Logger personalizado — loggear todas las peticiones
-  // app.use((req, res, next) => {
-  //   TODO: implementar logger similar al ejercicio-02
-  // });
-  //
-  // 3. Health check (no requiere middleware especial)
-  // app.get('/health', (_req, res) => { res.json({ status: 'ok' }); });
-  //
-  // 4. Rutas del recurso principal
-  // app.use('/api/v1/items', itemsRouter);
-  //
-  // 5. Handler para rutas no encontradas (404)
-  // app.use((_req, res) => {
-  //   res.status(404).json({ error: 'Route not found' });
-  // });
-  //
-  // 6. Error handler global — SIEMPRE el último app.use()
-  // app.use((err: Error, _req: Request, res: Response, _next: NextFunction) => {
-  //   TODO: implementar error handler
-  // });
+  app.use(express.json());
+
+  app.use((req: Request, res: Response, next: NextFunction) => {
+    const start = Date.now();
+    res.on('finish', () => {
+      const ms = Date.now() - start;
+      console.log(`[${req.method}] ${req.originalUrl} → ${res.statusCode} (${ms}ms)`);
+    });
+    next();
+  });
+
+  app.get('/health', (_req, res) => {
+    res.json({ status: 'ok', week: '02', project: 'express-crud' });
+  });
+
+  app.use('/api/v1/enrollments', itemsRouter);
+
+  app.use((_req: Request, res: Response) => {
+    res.status(404).json({ error: 'Route not found' });
+  });
+
+  app.use((err: Error, _req: Request, res: Response, _next: NextFunction) => {
+    console.error('[error]', err.message);
+    res.status(500).json({ error: 'Internal Server Error', message: err.message });
+  });
 
   return app;
 }
