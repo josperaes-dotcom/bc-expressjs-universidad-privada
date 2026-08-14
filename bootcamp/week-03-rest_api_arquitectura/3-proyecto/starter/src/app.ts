@@ -13,8 +13,7 @@ app.get('/health', (_req, res) => {
   res.json({ status: 'ok', week: '03', project: 'api-arquitectura' });
 });
 
-// TODO: Cambia 'items' por la ruta de tu dominio (ej: 'books', 'medicines')
-app.use('/api/v1/items', itemsRouter);
+app.use('/api/v1/enrollments', itemsRouter);
 
 // Error handler — no modificar
 app.use((err: Error, _req: express.Request, res: express.Response, _next: express.NextFunction) => {
