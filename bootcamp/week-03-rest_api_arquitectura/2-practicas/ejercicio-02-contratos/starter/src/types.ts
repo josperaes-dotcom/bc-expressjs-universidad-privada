@@ -1,13 +1,14 @@
-export interface Enrollment {
+export interface Book {
   id: number;
-  studentName: string;
-  program: string;
-  active: boolean;
-  createdAt: string;
+  title: string;
+  author: string;
+  year: number;
+  pages: number;
 }
 
-export type CreateItemDto = Omit<Enrollment, 'id' | 'createdAt'>;
-export type UpdateItemDto = Partial<CreateItemDto>;
+export type CreateBookDto = Omit<Book, 'id'>;
+
+export type UpdateBookDto = Partial<CreateBookDto>;
 
 export interface SingleResponse<T> {
   data: T;
@@ -23,9 +24,4 @@ export interface PaginatedResponse<T> {
 export interface ErrorResponse {
   error: string;
   message: string;
-}
-
-export interface PaginationParams {
-  page: number;
-  limit: number;
 }

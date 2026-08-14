@@ -1,67 +1,134 @@
-import { Request, Response, NextFunction } from 'express';
-import * as service from '../services/items.service';
-import { CreateItemDto, UpdateItemDto } from '../types';
+import {
+  Request,
+  Response,
+  NextFunction,
+} from 'express';
 
-export async function getAll(req: Request, res: Response, next: NextFunction): Promise<void> {
+import * as service from '../services/products.service';
+
+import {
+  CreateProductDto,
+  UpdateProductDto,
+} from '../types';
+
+export async function getAll(
+  req: Request,
+  res: Response,
+  next: NextFunction,
+): Promise<void> {
   try {
-    const page = parseInt(req.query['page'] as string) || 1;
-    const limit = parseInt(req.query['limit'] as string) || 10;
-    const result = await service.findAll({ page, limit });
+    const page =
+      parseInt(req.query['page'] as string) || 1;
+
+    const limit =
+      parseInt(req.query['limit'] as string) || 10;
+
+    const result = await service.findAll({
+      page,
+      limit,
+    });
+
     res.json(result);
-  } catch (err) {
-    next(err);
+  } catch (error) {
+    next(error);
   }
 }
 
-export async function getById(req: Request, res: Response, next: NextFunction): Promise<void> {
+export async function getById(
+  req: Request,
+  res: Response,
+  next: NextFunction,
+): Promise<void> {
   try {
     const id = parseInt(req.params['id']);
-    const item = await service.findById(id);
-    if (!item) {
-      res.status(404).json({ error: 'Not Found', message: `Item ${id} not found` });
+
+    const product = await service.findById(id);
+
+    if (!product) {
+      res.status(404).json({
+        error: 'Not Found',
+        message: `Product ${id} not found`,
+      });
+
       return;
     }
-    res.json({ data: item });
-  } catch (err) {
-    next(err);
+
+    res.json({
+      data: product,
+    });
+  } catch (error) {
+    next(error);
   }
 }
 
-export async function create(req: Request, res: Response, next: NextFunction): Promise<void> {
+export async function create(
+  req: Request,
+  res: Response,
+  next: NextFunction,
+): Promise<void> {
   try {
-    const dto = req.body as CreateItemDto;
-    const item = await service.create(dto);
-    res.status(201).json({ data: item });
-  } catch (err) {
-    next(err);
+    const dto = req.body as CreateProductDto;
+
+    const product = await service.create(dto);
+
+    res.status(201).json({
+      data: product,
+    });
+  } catch (error) {
+    next(error);
   }
 }
 
-export async function update(req: Request, res: Response, next: NextFunction): Promise<void> {
+export async function update(
+  req: Request,
+  res: Response,
+  next: NextFunction,
+): Promise<void> {
   try {
     const id = parseInt(req.params['id']);
-    const dto = req.body as UpdateItemDto;
-    const item = await service.update(id, dto);
-    if (!item) {
-      res.status(404).json({ error: 'Not Found', message: `Item ${id} not found` });
+
+    const dto = req.body as UpdateProductDto;
+
+    const product = await service.update(id, dto);
+
+    if (!product) {
+      res.status(404).json({
+        error: 'Not Found',
+        message: `Product ${id} not found`,
+      });
+
       return;
     }
-    res.json({ data: item });
-  } catch (err) {
-    next(err);
+
+    res.json({
+      data: product,
+    });
+  } catch (error) {
+    next(error);
   }
 }
 
-export async function remove(req: Request, res: Response, next: NextFunction): Promise<void> {
+export async function remove(
+  req: Request,
+  res: Response,
+  next: NextFunction,
+): Promise<void> {
   try {
     const id = parseInt(req.params['id']);
-    const deleted = await service.remove(id);
-    if (!deleted) {
-      res.status(404).json({ error: 'Not Found', message: `Item ${id} not found` });
+
+    const removed = await service.remove(id);
+
+    if (!removed) {
+      res.status(404).json({
+        error: 'Not Found',
+        message: `Product ${id} not found`,
+      });
+
       return;
     }
+
     res.status(204).send();
-  } catch (err) {
-    next(err);
+  } catch (error) {
+    next(error);
   }
 }
