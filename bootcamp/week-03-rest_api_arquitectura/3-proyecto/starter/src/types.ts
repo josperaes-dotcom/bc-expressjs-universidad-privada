@@ -1,12 +1,12 @@
-export interface Item {
+export interface Enrollment {
   id: number;
-  name: string;
-  description: string;
+  studentName: string;
+  program: string;
   active: boolean;
   createdAt: string;
 }
 
-export type CreateItemDto = Omit<Item, 'id' | 'createdAt'>;
+export type CreateItemDto = Omit<Enrollment, 'id' | 'createdAt'>;
 
 export type UpdateItemDto = Partial<CreateItemDto>;
 
